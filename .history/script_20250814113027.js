@@ -55,15 +55,23 @@ async function loadImages() {
     const noImages = document.getElementById('noImages');
     
     try {
-        // No GitHub Pages, só funciona com lista manual
+        let imagesToLoad = [];
+        
+        // Se imageList estiver vazio, tenta carregar automaticamente da pasta images
         if (imageList.length === 0) {
+            imagesToLoad = await discoverImages();
+        } else {
+            imagesToLoad = imageList;
+        }
+        
+        if (imagesToLoad.length === 0) {
             loading.style.display = 'none';
             noImages.style.display = 'block';
             return;
         }
         
-        // Carregar e validar imagens da lista manual
-        for (const imageName of imageList) {
+        // Carregar e validar imagens
+        for (const imageName of imagesToLoad) {
             await loadImage(imageName);
         }
         
@@ -83,6 +91,29 @@ async function loadImages() {
     }
 }
 
+// Função para descobrir imagens automaticamente
+async function discoverImages() {
+    const imagesToTry = [];
+    
+    // Gerar nomes mais prováveis primeiro
+    for (let i = 1; i <= autoDiscoveryConfig.maxAttempts; i++) {
+        autoDiscoveryConfig.formats.forEach(format => {
+            autoDiscoveryConfig.commonNames.forEach(name => {
+                imagesToTry.push(`${name}${i}.${format}`);
+            });
+        });
+    }
+    
+    // Adicionar alguns nomes sem números
+    autoDiscoveryConfig.commonNames.forEach(name => {
+        autoDiscoveryConfig.formats.forEach(format => {
+            imagesToTry.push(`${name}.${format}`);
+        });
+    });
+    
+    return imagesToTry;
+}
+
 // Função para carregar uma imagem específica
 function loadImage(imageName) {
     return new Promise((resolve) => {
@@ -98,8 +129,7 @@ function loadImage(imageName) {
         };
         
         img.onerror = function() {
-            console.warn(`❌ Imagem não encontrada: images/${imageName}`);
-            console.warn('💡 Verifique se o nome está correto e se o arquivo existe na pasta images/');
+            // Silenciosamente ignora imagens que não existem
             resolve();
         };
         

@@ -9,18 +9,22 @@ const autoplayDelay = 4000; // 4 segundos
 // Formatos de imagem suportados
 const imageFormats = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
 
-// IMPORTANTE: No GitHub Pages, você DEVE listar manualmente suas imagens aqui
-// O GitHub Pages não permite descoberta automática de arquivos por segurança
+// Lista de imagens (adicione aqui os nomes dos seus arquivos de imagem)
+// Para evitar erros 404, liste suas imagens manualmente ou deixe o script descobrir automaticamente
 const imageList = [
-    // Descomente e adicione os nomes exatos das suas fotos:
+    // Adicione aqui os nomes exatos das suas fotos:
     // 'foto1.jpg',
-    // 'nossa-primeira-foto.png',
-    // 'viagem-praia.jpeg',
-    // 'aniversario-2023.jpg',
-    // 'passeio-no-parque.png'
-    
-    // ⚠️  ATENÇÃO: Se deixar vazio, a página mostrará as instruções de como adicionar fotos
+    // 'nossa-viagem.png',
+    // 'aniversario.jpeg',
+    // etc.
 ];
+
+// Configurações para descoberta automática (reduzidas para evitar muitos 404s)
+const autoDiscoveryConfig = {
+    maxAttempts: 10, // Reduzido de 50 para 10
+    commonNames: ['foto', 'image', 'img'], // Nomes mais comuns
+    formats: ['jpg', 'jpeg', 'png'] // Formatos mais comuns primeiro
+};
 
 // Inicialização
 document.addEventListener('DOMContentLoaded', function() {
@@ -55,15 +59,23 @@ async function loadImages() {
     const noImages = document.getElementById('noImages');
     
     try {
-        // No GitHub Pages, só funciona com lista manual
+        let imagesToLoad = [];
+        
+        // Se imageList estiver vazio, tenta carregar automaticamente da pasta images
         if (imageList.length === 0) {
+            imagesToLoad = await discoverImages();
+        } else {
+            imagesToLoad = imageList;
+        }
+        
+        if (imagesToLoad.length === 0) {
             loading.style.display = 'none';
             noImages.style.display = 'block';
             return;
         }
         
-        // Carregar e validar imagens da lista manual
-        for (const imageName of imageList) {
+        // Carregar e validar imagens
+        for (const imageName of imagesToLoad) {
             await loadImage(imageName);
         }
         
@@ -83,6 +95,35 @@ async function loadImages() {
     }
 }
 
+// Função para descobrir imagens automaticamente
+async function discoverImages() {
+    // Lista de possíveis nomes de imagens comuns
+    const commonNames = [];
+    
+    // Gerar alguns nomes possíveis
+    for (let i = 1; i <= 50; i++) {
+        imageFormats.forEach(format => {
+            commonNames.push(`foto${i}.${format}`);
+            commonNames.push(`image${i}.${format}`);
+            commonNames.push(`img${i}.${format}`);
+            commonNames.push(`${i}.${format}`);
+        });
+    }
+    
+    // Adicionar alguns nomes comuns
+    const commonFileNames = [
+        'foto', 'image', 'img', 'pic', 'picture', 'photo'
+    ];
+    
+    commonFileNames.forEach(name => {
+        imageFormats.forEach(format => {
+            commonNames.push(`${name}.${format}`);
+        });
+    });
+    
+    return commonNames;
+}
+
 // Função para carregar uma imagem específica
 function loadImage(imageName) {
     return new Promise((resolve) => {
@@ -98,8 +139,7 @@ function loadImage(imageName) {
         };
         
         img.onerror = function() {
-            console.warn(`❌ Imagem não encontrada: images/${imageName}`);
-            console.warn('💡 Verifique se o nome está correto e se o arquivo existe na pasta images/');
+            // Silenciosamente ignora imagens que não existem
             resolve();
         };
         

@@ -266,22 +266,6 @@ header h1 {
     color: #ffd700;
 }
 
-.no-images .code-example {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 15px;
-    border-radius: 8px;
-    margin: 15px 0;
-    border-left: 4px solid #ffd700;
-}
-
-.no-images .code-example code {
-    background: transparent;
-    padding: 0;
-    color: #fff;
-    font-size: 0.9em;
-    line-height: 1.6;
-}
-
 .no-images .formats {
     font-size: 0.9em;
     opacity: 0.8;

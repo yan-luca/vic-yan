@@ -83,6 +83,29 @@ async function loadImages() {
     }
 }
 
+// Função para descobrir imagens automaticamente
+async function discoverImages() {
+    const imagesToTry = [];
+    
+    // Gerar nomes mais prováveis primeiro
+    for (let i = 1; i <= autoDiscoveryConfig.maxAttempts; i++) {
+        autoDiscoveryConfig.formats.forEach(format => {
+            autoDiscoveryConfig.commonNames.forEach(name => {
+                imagesToTry.push(`${name}${i}.${format}`);
+            });
+        });
+    }
+    
+    // Adicionar alguns nomes sem números
+    autoDiscoveryConfig.commonNames.forEach(name => {
+        autoDiscoveryConfig.formats.forEach(format => {
+            imagesToTry.push(`${name}.${format}`);
+        });
+    });
+    
+    return imagesToTry;
+}
+
 // Função para carregar uma imagem específica
 function loadImage(imageName) {
     return new Promise((resolve) => {
@@ -98,8 +121,7 @@ function loadImage(imageName) {
         };
         
         img.onerror = function() {
-            console.warn(`❌ Imagem não encontrada: images/${imageName}`);
-            console.warn('💡 Verifique se o nome está correto e se o arquivo existe na pasta images/');
+            // Silenciosamente ignora imagens que não existem
             resolve();
         };
         
