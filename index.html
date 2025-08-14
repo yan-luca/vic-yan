@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Jornada - Vic & Yan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Nossa Jornada Juntos ❤️</h1>
+            <div class="counter-container">
+                <div class="counter">
+                    <div class="counter-item">
+                        <span id="years" class="counter-number">0</span>
+                        <span class="counter-label">Anos</span>
+                    </div>
+                    <div class="counter-item">
+                        <span id="months" class="counter-number">0</span>
+                        <span class="counter-label">Meses</span>
+                    </div>
+                    <div class="counter-item">
+                        <span id="days" class="counter-number">0</span>
+                        <span class="counter-label">Dias</span>
+                    </div>
+                </div>
+                <p class="start-date">Desde 15 de Maio de 2022</p>
+            </div>
+        </header>
+
+        <main>
+            <div class="slideshow-container">
+                <div class="slides-wrapper" id="slidesWrapper">
+                    <!-- As imagens serão carregadas dinamicamente aqui -->
+                </div>
+                
+                <button class="nav-btn prev" id="prevBtn" onclick="changeSlide(-1)">❮</button>
+                <button class="nav-btn next" id="nextBtn" onclick="changeSlide(1)">❯</button>
+                
+                <div class="slide-counter">
+                    <span id="currentSlide">1</span> / <span id="totalSlides">0</span>
+                </div>
+                
+                <div class="dots-container" id="dotsContainer">
+                    <!-- Os pontos indicadores serão criados dinamicamente -->
+                </div>
+                
+                <div class="controls">
+                    <button id="playPauseBtn" onclick="toggleAutoplay()">⏸️</button>
+                    <button onclick="toggleFullscreen()">🔳</button>
+                </div>
+            </div>
+            
+            <div class="loading" id="loading">
+                <p>Carregando fotos...</p>
+            </div>
+            
+            <div class="no-images" id="noImages" style="display: none;">
+                <p>📷 Adicione suas fotos na pasta "images" para vê-las aqui!</p>
+                <p>Formatos suportados: JPG, JPEG, PNG, GIF, WebP</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

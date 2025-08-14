@@ -1,0 +1,90 @@
+# Nossa Jornada - Vic & Yan ❤️
+
+Uma página especial para celebrar nossa jornada juntos desde 15 de maio de 2022.
+
+## 🌟 Recursos
+
+- ⏰ **Contador de Tempo**: Mostra exatamente quantos anos, meses e dias estamos juntos
+- 📸 **Slideshow de Fotos**: Exibe todas as fotos da pasta `images` em um slideshow elegante
+- 🎮 **Controles Interativos**: 
+  - Navegação por setas
+  - Reprodução automática (pode ser pausada)
+  - Modo tela cheia
+  - Indicadores de pontos
+- 📱 **Design Responsivo**: Funciona perfeitamente em desktop, tablet e celular
+- ⌨️ **Atalhos de Teclado**:
+  - `←` / `→`: Navegar pelos slides
+  - `Espaço`: Pausar/Retomar slideshow
+  - `F`: Modo tela cheia
+  - `Esc`: Sair do modo tela cheia
+
+## 📁 Como Usar
+
+1. **Adicionar Fotos**: Coloque suas fotos na pasta `images/`
+   - Formatos suportados: JPG, JPEG, PNG, GIF, WebP
+   - Nomeie as fotos como: `foto1.jpg`, `foto2.png`, etc.
+
+2. **Configurar**: 
+   - A data de início (15/05/2022) pode ser alterada no arquivo `script.js`
+   - Personalize cores e estilos no arquivo `style.css`
+
+3. **Hospedar no GitHub Pages**:
+   - Faça commit dos arquivos
+   - Vá em Settings > Pages no seu repositório
+   - Selecione "Deploy from a branch" e escolha `main`
+   - Sua página estará disponível em: `https://seu-usuario.github.io/nome-do-repositorio`
+
+## 🎨 Personalização
+
+### Alterar a Data de Início
+No arquivo `script.js`, linha 2:
+```javascript
+const startDate = new Date('2022-05-15');
+```
+
+### Adicionar Fotos Específicas
+Se preferir listar as fotos manualmente, edite o array `imageList` no `script.js`:
+```javascript
+const imageList = [
+    'nossa-primeira-foto.jpg',
+    'viagem-praia.png',
+    'aniversario.jpeg'
+];
+```
+
+### Personalizar Cores
+No arquivo `style.css`, você pode alterar:
+- Gradiente de fundo
+- Cor do contador
+- Transparência dos elementos
+
+## 🚀 Deploy no GitHub Pages
+
+1. Certifique-se de que todos os arquivos estão commitados
+2. Vá para Settings > Pages no seu repositório GitHub
+3. Em "Source", selecione "Deploy from a branch"
+4. Escolha a branch `main` e pasta `/ (root)`
+5. Clique em "Save"
+6. Aguarde alguns minutos e acesse: `https://seu-usuario.github.io/vic-yan`
+
+## 📝 Estrutura dos Arquivos
+
+```
+vic-yan/
+├── index.html          # Página principal
+├── style.css           # Estilos
+├── script.js           # Funcionalidades
+├── images/             # Pasta para suas fotos
+└── README.md           # Este arquivo
+```
+
+## 💡 Dicas
+
+- **Performance**: As imagens são carregadas com lazy loading para melhor performance
+- **SEO**: Adicione meta tags no `<head>` se desejar
+- **Backup**: Sempre faça backup das suas fotos em um local seguro
+- **Qualidade**: Para melhor performance, otimize as imagens antes de adicionar
+
+---
+
+Feito com ❤️ para eternizar nossos momentos especiais!
