@@ -1,0 +1,267 @@
+/* Importando fontes elegantes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap');
+
+/* --- Estilos Globais --- */
+body {
+    font-family: 'Montserrat', sans-serif; /* Fonte padrão, moderna e legível */
+    background: linear-gradient(135deg, #fde3e4, #e6d4e7); /* Gradiente suave e romântico */
+    color: #444;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha no topo */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* --- Container Principal --- */
+.container {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.85); /* Fundo branco semi-transparente */
+    backdrop-filter: blur(10px); /* Efeito de vidro fosco (moderno) */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px 40px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* --- Cabeçalho e Título --- */
+header h1 {
+    font-family: 'Playfair Display', serif; /* Fonte elegante para o título */
+    font-size: 2.8em;
+    color: #c86b85; /* Um tom de rosa queimado */
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.start-date {
+    font-size: 1.1em;
+    color: #777;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* --- Contador de Tempo --- */
+.counter {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas pequenas */
+    justify-content: center;
+    gap: 15px; /* Espaço entre os itens */
+    margin-top: 25px;
+}
+
+.counter-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    min-width: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.counter-item:hover {
+    transform: translateY(-5px); /* Efeito de flutuar ao passar o mouse */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.counter-number {
+    font-size: 2.5em;
+    font-weight: 500;
+    color: #333;
+    line-height: 1;
+}
+
+.counter-label {
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* --- Slideshow --- */
+main {
+    margin-top: 40px;
+}
+
+.slideshow-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden; /* Garante que as imagens fiquem dentro das bordas arredondadas */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    background-color: #eee; /* Cor de fundo enquanto as imagens carregam */
+}
+
+.slides-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 60vh; /* Limita a altura da imagem para não ocupar a tela inteira */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+}
+
+/* Botões de Navegação (Prev/Next) */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    user-select: none; /* Impede a seleção de texto do botão */
+}
+
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+/* Controles (Play/Pause, Fullscreen) e Contador */
+.slide-counter {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+
+.controls {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.controls button {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Pontos indicadores */
+.dots-container {
+    text-align: center;
+    padding: 15px 0;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active, .dot:hover {
+    background-color: #c86b85;
+}
+
+/* --- Estilos para Avisos (Carregando / Sem Imagens) --- */
+.loading {
+    padding: 40px;
+    color: #666;
+}
+
+.no-images {
+    background-color: #fdf2f2;
+    border: 1px dashed #e4b8b8;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.no-images h3 {
+    color: #c86b85;
+    margin-top: 0;
+}
+
+.code-example {
+    background-color: #f7f7f7;
+    border-left: 3px solid #c86b85;
+    padding: 15px;
+    margin: 15px 0;
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+    border-radius: 0 5px 5px 0;
+}
+
+/* --- Responsividade para Celulares --- */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    .counter-item {
+        min-width: 80px;
+        padding: 15px 10px;
+    }
+
+    .counter-number {
+        font-size: 2em;
+    }
+
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+}

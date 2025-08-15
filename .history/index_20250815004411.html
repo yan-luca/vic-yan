@@ -1,15 +1,17 @@
     <!DOCTYPE html>
     <html lang="pt-BR">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Nossa Jornada - Vic & Yan</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Jornada - Vic & Yan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
     <body>
         <div class="container">
             <header>
-                <h1>Vic + Yan ❤️</h1>
+                <h1>Nossa Jornada Juntos ❤️</h1>
                 <div class="counter-container">
                     <div class="counter">
                         <div class="counter-item">
@@ -66,7 +68,34 @@
                 
                 <div class="loading" id="loading">
                     <p>Carregando fotos...</p>
-                </div>      
+                </div>
+                
+                <div class="no-images" id="noImages" style="display: none;">
+                    <h3>📷 Como adicionar suas fotos no GitHub Pages:</h3>
+                    <div class="instructions">
+                        <p><strong>⚠️ Importante:</strong> O GitHub Pages requer lista manual das imagens por segurança.</p>
+                        
+                        <p><strong>📝 Passo a passo:</strong></p>
+                        <ol>
+                            <li>Faça upload das suas fotos para a pasta <code>images/</code></li>
+                            <li>Abra o arquivo <code>script.js</code> para editar</li>
+                            <li>Procure por <code>const imageList = [</code></li>
+                            <li>Adicione os nomes das suas fotos:</li>
+                        </ol>
+                        
+                        <div class="code-example">
+                            <strong>Exemplo:</strong><br>
+                            <code>const imageList = [</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;'nossa-primeira-foto.jpg',</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;'viagem-praia.png',</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;'aniversario-2023.jpeg'</code><br>
+                            <code>];</code>
+                        </div>
+                        
+                        <p><strong>🔄 Depois:</strong> Faça commit e push das mudanças</p>
+                    </div>
+                    <p class="formats">Formatos suportados: JPG, JPEG, PNG, GIF, WebP</p>
+                </div>
             </main>
         </div>
 
