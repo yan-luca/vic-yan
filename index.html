@@ -1,90 +1,75 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nossa Jornada - Vic & Yan</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Nossa Jornada Juntos ❤️</h1>
-            <div class="counter-container">
-                <div class="counter">
-                    <div class="counter-item">
-                        <span id="years" class="counter-number">0</span>
-                        <span class="counter-label">Anos</span>
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nossa Jornada - Vic & Yan</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Nossa Jornada Juntos ❤️</h1>
+                <div class="counter-container">
+                    <div class="counter">
+                        <div class="counter-item">
+                            <span id="years" class="counter-number">0</span>
+                            <span class="counter-label">Anos</span>
+                        </div>
+                        <div class="counter-item">
+                            <span id="months" class="counter-number">0</span>
+                            <span class="counter-label">Meses</span>
+                        </div>
+                        <div class="counter-item">
+                            <span id="days" class="counter-number">0</span>
+                            <span class="counter-label">Dias</span>
+                        </div>
+                        <div class="counter-item">
+                            <span id="hours" class="counter-number">0</span>
+                            <span class="counter-label">Horas</span>
+                        </div>
+                        <div class="counter-item">
+                            <span id="minutes" class="counter-number">0</span>
+                            <span class="counter-label">Minutos</span>
+                        </div>
+                        <div class="counter-item">
+                            <span id="seconds" class="counter-number">0</span>
+                            <span class="counter-label">Segundos</span>
+                        </div>
                     </div>
-                    <div class="counter-item">
-                        <span id="months" class="counter-number">0</span>
-                        <span class="counter-label">Meses</span>
-                    </div>
-                    <div class="counter-item">
-                        <span id="days" class="counter-number">0</span>
-                        <span class="counter-label">Dias</span>
-                    </div>
+                    <p class="start-date">Desde 15 de Maio de 2022</p>
                 </div>
-                <p class="start-date">Desde 15 de Maio de 2022</p>
-            </div>
-        </header>
+            </header>
 
-        <main>
-            <div class="slideshow-container">
-                <div class="slides-wrapper" id="slidesWrapper">
-                    <!-- As imagens serão carregadas dinamicamente aqui -->
-                </div>
-                
-                <button class="nav-btn prev" id="prevBtn" onclick="changeSlide(-1)">❮</button>
-                <button class="nav-btn next" id="nextBtn" onclick="changeSlide(1)">❯</button>
-                
-                <div class="slide-counter">
-                    <span id="currentSlide">1</span> / <span id="totalSlides">0</span>
-                </div>
-                
-                <div class="dots-container" id="dotsContainer">
-                    <!-- Os pontos indicadores serão criados dinamicamente -->
-                </div>
-                
-                <div class="controls">
-                    <button id="playPauseBtn" onclick="toggleAutoplay()">⏸️</button>
-                    <button onclick="toggleFullscreen()">🔳</button>
-                </div>
-            </div>
-            
-            <div class="loading" id="loading">
-                <p>Carregando fotos...</p>
-            </div>
-            
-            <div class="no-images" id="noImages" style="display: none;">
-                <h3>📷 Como adicionar suas fotos no GitHub Pages:</h3>
-                <div class="instructions">
-                    <p><strong>⚠️ Importante:</strong> O GitHub Pages requer lista manual das imagens por segurança.</p>
-                    
-                    <p><strong>📝 Passo a passo:</strong></p>
-                    <ol>
-                        <li>Faça upload das suas fotos para a pasta <code>images/</code></li>
-                        <li>Abra o arquivo <code>script.js</code> para editar</li>
-                        <li>Procure por <code>const imageList = [</code></li>
-                        <li>Adicione os nomes das suas fotos:</li>
-                    </ol>
-                    
-                    <div class="code-example">
-                        <strong>Exemplo:</strong><br>
-                        <code>const imageList = [</code><br>
-                        <code>&nbsp;&nbsp;&nbsp;&nbsp;'nossa-primeira-foto.jpg',</code><br>
-                        <code>&nbsp;&nbsp;&nbsp;&nbsp;'viagem-praia.png',</code><br>
-                        <code>&nbsp;&nbsp;&nbsp;&nbsp;'aniversario-2023.jpeg'</code><br>
-                        <code>];</code>
+            <main>
+                <div class="slideshow-container">
+                    <div class="slides-wrapper" id="slidesWrapper">
+                        <!-- As imagens serão carregadas dinamicamente aqui -->
                     </div>
                     
-                    <p><strong>🔄 Depois:</strong> Faça commit e push das mudanças</p>
+                    <button class="nav-btn prev" id="prevBtn" onclick="changeSlide(-1)">❮</button>
+                    <button class="nav-btn next" id="nextBtn" onclick="changeSlide(1)">❯</button>
+                    
+                    <div class="slide-counter">
+                        <span id="currentSlide">1</span> / <span id="totalSlides">0</span>
+                    </div>
+                    
+                    <div class="dots-container" id="dotsContainer">
+                        <!-- Os pontos indicadores serão criados dinamicamente -->
+                    </div>
+                    
+                    <div class="controls">
+                        <button id="playPauseBtn" onclick="toggleAutoplay()">⏸️</button>
+                        <button onclick="toggleFullscreen()">🔳</button>
+                    </div>
                 </div>
-                <p class="formats">Formatos suportados: JPG, JPEG, PNG, GIF, WebP</p>
-            </div>
-        </main>
-    </div>
+                
+                <div class="loading" id="loading">
+                    <p>Carregando fotos...</p>
+                </div>      
+            </main>
+        </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+        <script src="script.js"></script>
+    </body>
+    </html>
